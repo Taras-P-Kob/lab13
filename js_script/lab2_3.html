@@ -1,35 +1,24 @@
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/style.css">
-		<title>Класифікація за віком</title>
-		    <link rel="stylesheet" href="../css/style.css">
+		<title>Звір, ПП-24</title>
+				    <link rel="stylesheet" href="../css/style.css">
+
 	</head>	
 	<body>
 		<script>
-			"use strict";
-			let age = parseInt(prompt("Введіть ваш вік")); 
-			let classification;
-
-			switch (true) {
-				case (age < 0):
-					classification = "недійсний вік";
-					break;
-				case (age < 12):
-					classification = "дитина"; 
-					break;
-				case (age < 18):
-					classification = "підліток"; 
-					break;
-				case (age < 65):
-					classification = "дорослий"; 
-					break;
-				default:
-					classification = "пенсіонер"; 
+			// Опис функції виведення рядка з заданим кольором
+			function DisplayMessage(txt, color) { 
+				document.write("<span style='color:" + color + ";'>" + txt + "</span><br />");
 			}
 			
-			document.write("Ви - ", classification);
+			// Звертання до функції з передачею фактичних параметрів
+			DisplayMessage("Це повідомлення червоного кольору", "red"); 
+			DisplayMessage("Це повідомлення синього кольору", "blue"); 
+			DisplayMessage("Це повідомлення зеленого кольору", "green");
 		</script>
+
 
 <ul>
     <li>
