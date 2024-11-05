@@ -1,59 +1,43 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>IF та умовні операції</title>
-
+	<head>
+		<meta charset="UTF-8">
+		<title>Прізвище, група</title>
     <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-	<h2 style="text-align:center">Введіть свій бал для визначення оцінки</h2>
-	
-	<label for="score">Введіть бал (0-100): </label>
-	<input type="number" id="score" min="0" max="100">
-	<button onclick="checkScore()">Перевірити оцінку</button>
-	
-	<p id="result"></p>
+	</head>	
+	<body>
+		<script>
+			"use strict";
+			let today = new Date();
+			let month = 5; // Замініть на місяць вашого дня народження (0 = січень, 11 = грудень)
+			let day = 15;  // Замініть на день вашого народження
 
-	<script>
-		"use strict";
-		
-		function checkScore() {
-			let score = parseInt(document.getElementById("score").value);
-			let result = "";
+			let birthday = new Date(today.getFullYear(), month, day);
 
-			if (score >= 88 && score <= 100) {
-				result = "Ваша оцінка: Відмінно!";
-			} else if (score >= 71 && score <= 87) {
-				result = "Ваша оцінка: Добре!";
-			} else if (score >= 50 && score <= 70) {
-				result = "Ваша оцінка: Задовільно!";
-			} else if (score >= 0 && score <= 49) {
-				result = "Ваша оцінка: Не задовільно!";
-			} else {
-				result = "Ви ввели неправильне значення!";
+			// Якщо день народження вже пройшов цього року, додаємо рік
+			if (today > birthday) {
+				birthday.setFullYear(today.getFullYear() + 1);
 			}
 
-			document.getElementById("result").innerHTML = result;
+			const dayMs = 86400000;
+			const hourMs = 3600000; 
+			const minuteMs = 60000;
 
-			// Використання тернарної операції для визначення категорії оцінки
-			let category = (score >= 88 && score <= 100) ? "Відмінно" : 
-						   (score >= 71 && score <= 87) ? "Добре" : 
-						   (score >= 50 && score <= 70) ? "Задовільно" : 
-						   (score >= 0 && score <= 49) ? "Не задовільно" : 
-						   "Неправильне значення";
+			let timeLeft = birthday.getTime() - today.getTime(); 
+			let days = Math.floor(timeLeft / dayMs);
+			let hours = Math.floor((timeLeft - days * dayMs) / hourMs);
+			let minutes = Math.floor((timeLeft - days * dayMs - hours * hourMs) / minuteMs);
 
-			document.getElementById("result").innerHTML += `<br>Категорія оцінки за тернарною операцією: ${category}`;
-		}
-	</script>
+			let str = days + " днів, " + hours + " годин, " + minutes + " хвилин.";
+			console.log("До вашого дня народження залишилося ", str);
+			alert("До вашого дня народження залишилося " + str);
+		</script>
 
-
-
-<ul>
+		<ul>
     <li>
         <a class="home" href="../index.html">Повернутися на головну сторінку</a>
     </li>
 </ul>
-</body>
+		
+	</body>
 </html>
-
