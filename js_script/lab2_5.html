@@ -1,20 +1,25 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>for...in</title>
-    <link rel="stylesheet" href="../css/style.css">
-	</head>	
-	<body>
-		<script> 
-			"use strict";		
-			let propertyInfo = "";
-			for (let propertyName in navigator) {
-				propertyInfo = propertyName + " - " + navigator[propertyName];
-				document.write(propertyInfo + "<br>");
-			}
-		</script>
+<head>
+	<meta charset="UTF-8">
+	<title>Звір, ПП-24</title>
+	    <link rel="stylesheet" href="../css/style.css">
 
+</head>
+<body>
+	<script>
+		"use strict";
+		function displayText(txt, size = 14, color = "black") {
+			document.write(`<div style="font-size:${size}pt; color:${color}">${txt}</div>`);
+		}
+		
+		// Приклади виклику функції displayText з різними параметрами
+		displayText("Текст великим шрифтом червоного кольору", 32, "red");
+		displayText("Текст середнім шрифтом синього кольору", 20, "blue");
+		displayText("Текст за замовченням - перший рядок");
+		displayText("Текст за замовченням - другий рядок");
+		displayText("Текст малим шрифтом зеленого кольору", 8, "green");
+	</script>
 
 <ul>
     <li>
@@ -22,7 +27,6 @@
     </li>
 </ul>
 
-
-	</body>
+	
+</body>
 </html>
-
